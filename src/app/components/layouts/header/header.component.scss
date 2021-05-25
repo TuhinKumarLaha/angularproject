@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+.menu-list-items{
+  // background-color: #673ab7;
+  // color: #fff;
+  transition: all 1s ;
+  // border-radius: 10px;
+  // transform: rotateX(360deg);
+}
+
+
+.menu-list-items :hover{
+  background-color: #673ab7;
+  color: #fff;
+  transition: all 0.6s ;
+  border-radius: 10px;
+  // transform: rotateX(360deg);
+}

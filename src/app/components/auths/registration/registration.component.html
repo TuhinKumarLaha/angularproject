@@ -1,0 +1,48 @@
+<p>registration works!</p>
+
+<div fxLayoutAlign="canter center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Register With Us</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="example-form login-form" (ngSubmit)="submit()" [formGroup]="regForm">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput placeholder="Enter Your First Name" formControlName="firstname">
+                <div *ngIf="regForm.get('firstname').touched">
+                  <p class="alert alert-danger" role="alert" *ngIf="regForm.get('firstname').hasError('required')">This field is required</p>
+                  <p class="alert alert-warning" role="alert" *ngIf="regForm.get('firstname').hasError('minlength')">Atleast 3 characters are required</p>
+                </div>
+            </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput placeholder="Enter Your Last Name" formControlName="lastname">
+                <div *ngIf="regForm.get('lastname').touched">
+                  <p class="alert alert-danger" role="alert" *ngIf="regForm.get('lastname').hasError('required')">This field is required</p>
+                  <p class="alert alert-warning" role="alert" *ngIf="regForm.get('lastname').hasError('minlength')">Atleast 3 characters are required</p>
+                </div>
+              </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Enter Your Email" formControlName="email">
+              <div *ngIf="regForm.get('email').touched">
+                <p class="alert alert-danger" role="alert" *ngIf="regForm.get('email').hasError('required')">This field is required</p>
+                <p class="alert alert-warning" role="alert" *ngIf="regForm.get('email').hasError('pattern')">Invalid email ID</p>
+              </div>
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter the Password" formControlName="password">
+                <div *ngIf="regForm.get('password').touched">
+                  <p class="alert alert-danger" role="alert" *ngIf="regForm.get('password').hasError('required')">This field is required</p>
+                  <p class="alert alert-warning" role="alert" *ngIf="regForm.get('password').hasError('minlength')">Atleast 6 characters are required</p>
+                </div>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" [disabled]="regForm.invalid">Register Now</button>
+          </form>
+          
+    </mat-card>
+</div>

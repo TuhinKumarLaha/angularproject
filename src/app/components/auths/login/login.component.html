@@ -1,0 +1,28 @@
+<p>login works!</p>
+<div fxLayoutAlign="canter center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">LogIn Here</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="example-form login-form" #formvalue="ngForm" (ngSubmit)="loginSubmit(formvalue)">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Enter Your Email" ngModel #email="ngModel" name="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required>
+              <ng-container *ngIf="email.touched" class="">
+                <p *ngIf="email.errors?.required">This field is required</p>
+                <p *ngIf="email.errors?.pattern">Email pattern doesn't matched</p>
+              </ng-container>
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter the Password" ngModel #password="ngModel" name="password" required minlength="5">
+                <ng-container *ngIf="password.touched" class="">
+                  <p *ngIf="password.errors?.required">This field is required</p>
+                  <p *ngIf="password.errors?.minlength">Minimum 5 characters are required</p>
+                </ng-container>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit">Login Now</button>
+          </form>
+          
+    </mat-card>
+</div>

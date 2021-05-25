@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list class="menu-list-items">
+      <a *ngIf="isLogout()" mat-list-item routerLink="/login" class="menu-list-items">Login</a>
+      <a *ngIf="isLogout()" mat-list-item routerLink="/registration" class="menu-list-items">Registration</a>
+      <a mat-list-item routerLink="/products" class="menu-list-items">Product</a>
+      <a mat-list-item routerLink="/cart" class="menu-list-items">Cart</a>
+      <a mat-list-item routerLink="/orderSection" class="menu-list-items" class="menu-list-items">Your Orders</a>
+      <a *ngIf="!isLogout()" mat-list-item routerLink="" (click)="logout()" class="menu-list-items">Log Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Shoping Project</span>
+
+      <!-- search box -->
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
